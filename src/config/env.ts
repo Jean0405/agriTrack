@@ -3,6 +3,7 @@ import 'dotenv/config'
 function getEnv(variable: string): string {
     const value = process.env[variable]
     if (!value) {
+        console.log(`❌🔒 Environment variable ${variable} is not defined`); 
         throw new Error(`Environment variable ${variable} is not defined`)
     }
     return value
@@ -16,4 +17,5 @@ export const env = {
     DB_HOST: getEnv('DB_HOST'),
     DB_NAME: getEnv('DB_NAME'),
     DB_PORT: getEnv('DB_PORT'),
+    JWT_SECRET: getEnv('JWT_SECRET'),
 }
